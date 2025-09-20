@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projectRollDiceApp/gradient_container.dart';
-import 'package:projectRollDiceApp/styled_text.dart';
-
+import 'package:QuizApp/gradient_container.dart';
+import 'package:QuizApp/start_screen.dart';
 // void main() {
 //   runApp(MyApp());
 // }
@@ -9,7 +8,21 @@ import 'package:projectRollDiceApp/styled_text.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 255, 61, 26),
+                Color.fromARGB(255, 247, 255, 7),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: StartScreen(),
+        ),
+      ),
     ),
   );
 }
