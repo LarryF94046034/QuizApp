@@ -1,37 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:QuizApp/gradient_container.dart';
+
+import 'package:QuizApp/quiz.dart';
 import 'package:QuizApp/start_screen.dart';
+
 // void main() {
 //   runApp(MyApp());
 // }
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 255, 61, 26),
-                Color.fromARGB(255, 247, 255, 7),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: StartScreen(),
-        ),
-      ),
-    ),
-  );
+  runApp(Quiz());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
-  void RollDice() {
-    print('Roll Dice');
+  void rollDice() {
+    //print('Roll Dice');
   }
 
   // This widget is the root of your application.
@@ -65,7 +50,7 @@ class MyApp extends StatelessWidget {
             children: [
               Image.asset('assets/images/dice-2.png', width: 200),
               TextButton(
-                onPressed: RollDice,
+                onPressed: rollDice,
                 child: const Text('Roll Dice'), // 這裡用 child
               ),
               GradientContainer(),
@@ -125,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+        // the App.build method, and use it to set our title.
         title: Text(widget.title),
       ),
       body: Center(
