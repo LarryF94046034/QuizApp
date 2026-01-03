@@ -7,4 +7,11 @@ class QuizQuestion {
 
   //答案
   final List<String> answers;
+
+  //傳回打亂順序的答案
+  List<String> getShuffledAnswers() {
+    final shuffledList = List.of(answers);
+    shuffledList.shuffle();
+    return shuffledList;
+  }
 }
