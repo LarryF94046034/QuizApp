@@ -5,6 +5,9 @@ import 'package:QuizApp/question_screen.dart';
 //問題
 import 'package:QuizApp/data/questions.dart';
 
+//答題結果
+import 'package:QuizApp/result_screen.dart';
+
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
 
@@ -33,7 +36,8 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       setState(() {
         selectedAnswers = [];
-        activeScreen = 'start-screen';
+        //activeScreen = 'start-screen';
+        activeScreen = 'result-screen';
       });
     }
   }
@@ -44,6 +48,10 @@ class _QuizState extends State<Quiz> {
 
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
+    }
+
+    if (activeScreen == 'result-screen') {
+      screenWidget = ResultScreen();
     }
 
     return MaterialApp(
