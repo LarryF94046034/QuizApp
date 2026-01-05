@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:QuizApp/start_screen.dart';
 import 'package:QuizApp/question_screen.dart';
 
+//問題
+import 'package:QuizApp/data/questions.dart';
+
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
 
@@ -15,7 +18,7 @@ class _QuizState extends State<Quiz> {
   var activeScreen = 'start-screen';
 
   //儲存選擇的答案
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
 
   void switchScreen() {
     setState(() {
@@ -26,6 +29,13 @@ class _QuizState extends State<Quiz> {
   //紀錄使用者選的答案
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
+    }
   }
 
   @override
